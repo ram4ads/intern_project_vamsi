@@ -1,6 +1,7 @@
 import React from 'react'
 import { useQuery,gql } from '@apollo/client';
 import Messages from './components/Messages';
+import {Dna} from "react-loader-spinner"
 import "./App.css"
 
 const get_data = gql`
@@ -31,7 +32,14 @@ const App = () => {
   const {loading, error, data} = useQuery(get_data);
   console.log(data);
 
-  if (loading) return <p className='load-para'>...Loading</p>  
+  if (loading) return (<Dna
+    visible={true}
+    height="100"
+    width="100"
+    ariaLabel="dna-loading"
+    wrapperStyle={{}}
+    wrapperClass="dna-wrapper"
+  />) 
   if (error) return <p className='err-msg'>{error.message}</p>
   return (
     <div className='App'>
