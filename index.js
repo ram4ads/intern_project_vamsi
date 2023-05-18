@@ -1,12 +1,19 @@
 let homeEl = document.getElementById("home");
 let loginEl = document.getElementById("login"); 
 let rootEl = document.getElementById("root");
+let someEl = document.getElementById("something");
+
+let num = 0
+let num1 = 0
+
+someEl.addEventListener("click", function() {
+  num += 1
+  alert(`you have clicked ${num} times`)
+})
 
 homeEl.addEventListener("click" , function(){
-      rootEl.textContent = "";
-      let h1El = document.createElement("h1");
-      h1El.textContent = "Welcome to Home Page";
-      rootEl.appendChild(h1El);
+  num1 += 1
+  alert(`you have clicked ${num1} times`)
 })
 
 loginEl.addEventListener("click" , function() {
