@@ -1,0 +1,15 @@
+.image {
+    width: 200px;
+    height: 200px;
+}
+.input-button {
+    background-color: rgb(53, 163, 194);
+    color: #000000;
+    font-weight: bold;
+}
+.image-container {
+    background-color: aliceblue;
+    height: 450px;
+    width: 90%;
+    padding: 25px;
+}

@@ -1,0 +1,10 @@
+
+
+.c {
+     width: 100px;
+}
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
