@@ -1,9 +1,12 @@
 import React, { useRef, useState, useContext } from 'react';
-import { UserData } from '../../App';
+import { UserData } from './Signup';
+
 
 const Webcam = () => {
 
   const {handleChange,handleSubmit,data} = useContext(UserData);
+  
+  
   const videoRef = useRef();
   const canvasRef = useRef();
  
@@ -31,7 +34,7 @@ const Webcam = () => {
     canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
 
     const imageDataURL = canvas.toDataURL();
-    console.log(imageDataURL);
+   
     handleChange({target : {name : "webcamPhoto",value : imageDataURL}});
 
     // Stop the webcam stream
@@ -39,33 +42,38 @@ const Webcam = () => {
     setWebcamOpen(false);
   };
 
+ 
+
+  
+  
+
   return (
     <div>
       {!webcamOpen && (
-        <button onClick={startWebcam}>Start Webcam</button>
+        <button type="button" className="glow-on-hover" onClick={startWebcam}>Start Webcam</button>
       )}
 
       {webcamOpen && (
         <div>
-          <video ref={videoRef}></video>
+          <video ref={videoRef} className='video'></video>
           <br />
-          <button onClick={captureImage}>Capture Image</button>
+          <button className='glow-on-hover' onClick={captureImage}>Capture Image</button>
         </div>
       )}
 
       {data.webcamPhoto && (
         <div>
           <p>Captured Image:</p>
-          <img src={data.webcamPhoto} alt="Captured" />
+          <img src={data.webcamPhoto} alt="Captured"  className='captured-image'/>
           <div>
-            <button type="button" className='glow-on-hower' onClick={handleSubmit}>Submit</button>
+            <button type="button" className='glow-on-hover' onClick={handleSubmit}>Submit</button>
           </div>
         </div>
       )}
 
       <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
 
-      
+     
     </div>
   );
 };

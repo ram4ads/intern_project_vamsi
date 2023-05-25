@@ -1,6 +1,6 @@
 import React, {useContext } from "react";
-import { UserData } from "../../App";
-import "./Form.css";
+import { UserData } from "./Signup";
+import "../App.css";
 
 
 
@@ -30,6 +30,8 @@ const Form = () => {
           value={data.firstName}
           onChange={handleChange}
           placeholder="Firstname"
+        
+          required
         />
         <br />
 
@@ -39,6 +41,8 @@ const Form = () => {
           value={data.lastName}
           onChange={handleChange}
           placeholder="LastName "
+        
+          required
         />
        
         <br />

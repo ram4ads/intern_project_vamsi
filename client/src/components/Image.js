@@ -1,6 +1,6 @@
 import React,{useState,useContext} from 'react';
-import { UserData } from '../../App';
-import "./Image.css";
+import { UserData } from './Signup';
+import "../App.css";
 
 
 const Image = () => {
@@ -12,9 +12,24 @@ const Image = () => {
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     const fileSize = file.size / (1024 * 1024); // Convert to KB
-    if (fileSize <= 1) {
-      const imageUrl = URL.createObjectURL(file);
-      handleChange({target : {name : "userPhoto", value : imageUrl}});
+    if (fileSize <= 1 && file) {
+  
+
+    
+      const reader = new FileReader();
+    
+      reader.onload = (event) => {
+        let imageUrl = event.target.result;
+        handleChange({target : {name : "userPhoto", value : imageUrl}});
+      
+      };
+      
+      reader.readAsDataURL(file);
+    
+     
+       //const imageUrl = URL.createObjectURL(file);
+      // console.log(imageUrl)
+      
       setError('');
     } else {
       setError('File size exceeds the limit of 5 KB.');

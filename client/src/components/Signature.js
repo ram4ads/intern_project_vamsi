@@ -1,14 +1,14 @@
 import React, { useRef, useContext } from 'react';
 import SignatureCanvas from "react-signature-canvas"
-import { UserData } from '../../App';
-import "./Signature.css";
+import { UserData } from './Signup';
+import "../App.css";
 
 const Signature = () => {
     const canvasRef = useRef(null);
      const {handletab,data,handleChange} = useContext(UserData);
    
     const handleCaptureSignature = async() => {
-      const canvas = canvasRef.current;
+      const canvas =  canvasRef.current;
       const signatureImageURL = canvas.toDataURL();
       handleChange({target : {name : "userSignature", value : signatureImageURL}})
       
@@ -27,78 +27,3 @@ const Signature = () => {
 };
 
 export default Signature;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
